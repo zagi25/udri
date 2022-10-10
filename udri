@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+
+tmux start-server
+
+tmux new-session -d -s Work -n React
+tmux send-keys -t 3 clear Enter
+tmux send-keys -t 0 ls Enter
+
+tmux new-window -t Work:1 -n Symfony
+tmux send-keys -t 3 clear Enter
+tmux send-keys -t 1 ls Enter
+
+tmux new-window -t Work:2 -n FRONT
+tmux send-keys -t 3 clear Enter
+tmux send-keys -t 2 ls Enter
+tmux split-window -h
+tmux send-keys -t 3 clear Enter
+tmux send-keys -t 2 ls Enter
+
+tmux new-window -t Work:3 -n BACK
+tmux send-keys -t 3 clear Enter
+tmux send-keys -t 3 ls Enter
+tmux split-window -h
+tmux send-keys -t 3 clear Enter
+tmux send-keys -t 3 ping Space 8.8.8.8 Enter
+
+tmux attach -tWork
